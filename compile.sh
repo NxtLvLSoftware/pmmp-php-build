@@ -112,8 +112,9 @@ FLAGS_LTO=""
 LD_PRELOAD=""
 
 COMPILE_GD="no"
+HAVE_INTL="--disable-intl"
 
-while getopts "::t:j:srdxff:gnv" OPTION; do
+while getopts "::t:j:srdxff:gnvl" OPTION; do
 
 	case $OPTION in
 		t)
@@ -160,6 +161,10 @@ while getopts "::t:j:srdxff:gnv" OPTION; do
 		v)
 			echo "[opt] Will enable valgrind support in PHP"
 			HAVE_VALGRIND="--with-valgrind"
+			;;
+		l)
+			echo "[opt] Will enable intl (icu) support in PHP"
+			HAVE_INTL="--enable-intl"
 			;;
 		\?)
 			echo "Invalid option: -$OPTION$OPTARG" >&2
@@ -837,6 +842,7 @@ $HAS_DEBUG \
 --disable-short-tags \
 $HAVE_PCNTL \
 $HAVE_MYSQLI \
+$HAVE_INTL \
 --enable-bcmath \
 --enable-cli \
 --enable-zip \
