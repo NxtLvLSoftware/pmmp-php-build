@@ -15,7 +15,7 @@ RUN mv composer.phar /usr/bin/composer
 FROM ubuntu:18.04
 MAINTAINER NxtLvl Software <contact@nxtlvlsoftware.net>
 
-RUN apt-get update && apt-get install --no-install-recommends -y ca-certificates wget
+RUN apt-get update && apt-get install --no-install-recommends -y ca-certificates wget libicu-dev
 
 RUN groupadd -g 1000 php
 RUN useradd -r -d /php -p "" -u 1000 -m -g php php
