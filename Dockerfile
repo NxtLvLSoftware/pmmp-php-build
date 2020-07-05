@@ -6,7 +6,7 @@ RUN mkdir /build && mkdir /build/php
 WORKDIR /build/php
 ADD compile.sh /build/php/compile.sh
 RUN ./compile.sh -t linux64 -j ${THREADS:-$(grep -E ^processor /proc/cpuinfo | wc -l)} -f -g
-RUN ln -s /build/build/php/bin/php7/bin/php /usr/bin/php
+RUN ln -s /build/php/bin/php7/bin/php /usr/bin/php
 
 WORKDIR /build
 RUN curl -L https://getcomposer.org/installer | php
