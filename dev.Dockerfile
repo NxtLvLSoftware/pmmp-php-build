@@ -11,6 +11,6 @@ WORKDIR /build
 RUN curl -L https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/bin/composer
 
-USER php
-
 RUN chmod o+x /usr/bin/composer
+
+USER php
