@@ -28,11 +28,11 @@ jobs:
           registry_uri: ${{ secrets.DOCKER_REGISTRY }}
           pull: false
       - name: Upload PHP installation log
-          uses: actions/upload-artifact@v1
-          if: failure()
-          with:
-            name: php-install.log
-            path: /build/php/install.log
+        uses: actions/upload-artifact@v1
+        if: failure()
+        with:
+          name: php-install.log
+          path: /build/php/install.log
       - name: Build + push dev image
         uses: nxtlvlsoftware/docker-build-action@master
         with:
