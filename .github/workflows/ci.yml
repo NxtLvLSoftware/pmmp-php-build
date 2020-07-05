@@ -13,11 +13,14 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 1
-      - run: echo ${{ toJson(github) }}
+      - name: Get the current branch name
+      shell: bash
+      run: echo "::set-output name=branch::${GITHUB_REF#refs/heads/}"
+      id: ref
       - uses: nxtlvlsoftware/docker-build-action@master
         with:
           name: docker.pkg.github.com/nxtlvlsoftware/pmmp-php-build/php
-          tag: ${{ github.ref }}
+          tag: ${{ steps.ref.outputs.branch }}
           registry_username: ${{ secrets.DOCKER_USERNAME }}
           registry_password: ${{ secrets.DOCKER_PASSWORD }}
           registry_uri: ${{ secrets.DOCKER_REGISTRY }}
