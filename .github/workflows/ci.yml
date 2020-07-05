@@ -36,7 +36,7 @@ jobs:
       - name: Build + push dev image
         uses: nxtlvlsoftware/docker-build-action@master
         with:
-          path: ./dev.Dockerfile
+          file: dev.Dockerfile
           name: docker.pkg.github.com/nxtlvlsoftware/pmmp-php-build/php-dev
           tag: ${{ steps.ref.outputs.branch }}
           registry_username: ${{ secrets.DOCKER_USERNAME }}
