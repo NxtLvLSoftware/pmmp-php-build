@@ -16,7 +16,7 @@ jobs:
       - uses: nxtlvlsoftware/docker-build-action@master
         with:
           name: docker.pkg.github.com/nxtlvlsoftware/pmmp-php-build/php
-          tag: ${{ github.event.release.tag_name }}
+          tag: ${{ github.ref }}
           registry_username: ${{ secrets.DOCKER_USERNAME }}
           registry_password: ${{ secrets.DOCKER_PASSWORD }}
           registry_uri: ${{ secrets.DOCKER_REGISTRY }}
