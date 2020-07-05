@@ -4,7 +4,7 @@ MAINTAINER NxtLvl Software <contact@nxtlvlsoftware.net>
 
 USER root
 
-RUN apt-get update && apt-get install --no-install-recommends -y git
+RUN apt-get update && apt-get install --no-install-recommends -y curl git
 
 RUN mkdir /build
 WORKDIR /build
