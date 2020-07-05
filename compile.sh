@@ -31,7 +31,7 @@ function write_error {
 	write_out ERROR "$1" >&2
 }
 
-echo "[PocketMine] PHP compiler for Linux, MacOS and Android"
+echo "[INFO] PHP compiler for Linux and MacOS"
 DIR="$(pwd)"
 date > "$DIR/install.log" 2>&1
 
@@ -255,7 +255,7 @@ else
 			fi
 			GMP_ABI="64"
 		else
-			echo "[ERROR] PocketMine-MP is no longer supported on 32-bit systems"
+			echo "[ERROR] This build script no longer supports on 32-bit systems"
 			exit 1
 		fi
 	fi
@@ -957,5 +957,4 @@ if [ "$DO_CLEANUP" == "yes" ]; then
 fi
 
 date >> "$DIR/install.log" 2>&1
-echo "[PocketMine] You should start the server now using \"./start.sh\"."
-echo "[PocketMine] If it doesn't work, please send the \"install.log\" file to the Bug Tracker."
+echo "[INFO] Build completed. If it doesn't work, please send the \"install.log\" file to the Bug Tracker."
