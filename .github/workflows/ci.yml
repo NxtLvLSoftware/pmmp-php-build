@@ -1,0 +1,22 @@
+name: phpstan
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    name: Build docker image
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - uses: nxtlvlsoftware/docker-build-action@master
+        with:
+          name: docker.pkg.github.com/nxtlvlsoftware/pmmp-php-build/php
+          tag: ${{ github.event.release.tag_name }}
+          registery_username: ${{ secrets.DOCKER_USERNAME }}
+          registery_password: ${{ secrets.DOCKER_PASSWORD }}
+          registery_uri: ${{ secrets.DOCKER_REGISTRY }}
