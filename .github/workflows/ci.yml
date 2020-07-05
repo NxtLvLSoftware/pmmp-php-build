@@ -20,3 +20,4 @@ jobs:
           registry_username: ${{ secrets.DOCKER_USERNAME }}
           registry_password: ${{ secrets.DOCKER_PASSWORD }}
           registry_uri: ${{ secrets.DOCKER_REGISTRY }}
+          pull: false
