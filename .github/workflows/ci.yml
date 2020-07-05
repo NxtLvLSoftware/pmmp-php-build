@@ -26,7 +26,7 @@ jobs:
           registry_username: ${{ secrets.DOCKER_USERNAME }}
           registry_password: ${{ secrets.DOCKER_PASSWORD }}
           registry_uri: ${{ secrets.DOCKER_REGISTRY }}
-          pull: false
+          pull: true
       - name: Upload PHP installation log
         uses: actions/upload-artifact@v1
         if: failure()
@@ -43,3 +43,4 @@ jobs:
           registry_password: ${{ secrets.DOCKER_PASSWORD }}
           registry_uri: ${{ secrets.DOCKER_REGISTRY }}
           pull: false
+          extra_args: "--build-arg PHP_VERSION=${{ steps.ref.outputs.branch }}"
