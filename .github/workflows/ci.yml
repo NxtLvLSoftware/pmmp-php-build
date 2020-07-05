@@ -10,14 +10,16 @@ jobs:
     name: Build docker image
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout source
+        uses: actions/checkout@v2
         with:
           fetch-depth: 1
       - name: Get the current branch name
         shell: bash
         run: echo "::set-output name=branch::${GITHUB_REF#refs/heads/}"
         id: ref
-      - uses: nxtlvlsoftware/docker-build-action@master
+      - name: Build + push base image
+        uses: nxtlvlsoftware/docker-build-action@master
         with:
           name: docker.pkg.github.com/nxtlvlsoftware/pmmp-php-build/php
           tag: ${{ steps.ref.outputs.branch }}
@@ -25,7 +27,8 @@ jobs:
           registry_password: ${{ secrets.DOCKER_PASSWORD }}
           registry_uri: ${{ secrets.DOCKER_REGISTRY }}
           pull: false
-      - uses: nxtlvlsoftware/docker-build-action@master
+      - name: Build + push dev image
+        uses: nxtlvlsoftware/docker-build-action@master
         with:
           path: dev.Dockerfile
           name: docker.pkg.github.com/nxtlvlsoftware/pmmp-php-build/php-dev
