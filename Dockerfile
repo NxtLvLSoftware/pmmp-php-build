@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y curl ca-certifi
 RUN mkdir /build && mkdir /build/php
 WORKDIR /build/php
 ADD compile.sh /build/php/compile.sh
-RUN ./compile.sh -t linux64 -j ${THREADS:-$(grep -E ^processor /proc/cpuinfo | wc -l)} -f -g
+RUN ./compile.sh -t linux64 -j ${THREADS:-$(grep -E ^processor /proc/cpuinfo | wc -l)} -f -g -l
 RUN ln -s /build/php/bin/php7/bin/php /usr/bin/php
 
 WORKDIR /build
@@ -15,7 +15,7 @@ RUN mv composer.phar /usr/bin/composer
 FROM ubuntu:18.04
 MAINTAINER NxtLvl Software <contact@nxtlvlsoftware.net>
 
-RUN apt-get update && apt-get install --no-install-recommends -y ca-certificates wget libicu-dev
+RUN apt-get update && apt-get install --no-install-recommends -y ca-certificates wget
 
 RUN groupadd -g 1000 php
 RUN useradd -r -d /php -p "" -u 1000 -m -g php php
