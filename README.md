@@ -16,9 +16,11 @@ Bash script used to compile PHP on MacOS and Linux platforms. Make sure you have
 | -f           | Enabling abusive optimizations...                                                     |
 | -g           | Will compile GD2                                                                      |
 | -j           | Set make threads to #                                                                 |
+| -n           | Don't remove sources after completing compilation                                     |
 | -s           | Will compile everything statically                                                    |
 | -t           | Set target                                                                            |
 | -u           | Will compile PocketMine-ChunkUtils C extension (recommended if using PC Anvil worlds) |
+| -v           | Enable Valgrind support in PHP                                                        |
 | -x           | Specifies we are doing cross-compile                                                  |
 | -l           | Will compile with intl extension (lib icu)                                            |
 
