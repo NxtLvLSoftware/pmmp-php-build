@@ -171,6 +171,7 @@ while getopts "::t:j:srdxff:gnvla:" OPTION; do
 		l)
 			echo "[opt] Will enable intl (icu) support in PHP"
 			HAVE_INTL="--enable-intl"
+			;;
 		a)
 			echo "[opt] Will pass -fsanitize=$OPTARG to compilers and linkers"
 			FSANITIZE_OPTIONS="$OPTARG"
