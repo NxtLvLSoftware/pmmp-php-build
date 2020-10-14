@@ -2,7 +2,7 @@
 
 ## compile.sh
 
-Bash script used to compile PHP on MacOS and Linux platforms. Make sure you have ``make autoconf automake libtool m4 wget getconf gzip bzip2 bison g++ git cmake pkg-config``.
+Bash script used to compile PHP on MacOS and Linux platforms. Make sure you have ``make autoconf automake libtool m4 wget getconf gzip bzip2 bison g++ git cmake pkg-config re2c``.
 
 ### Additional notes
 #### Mac OSX (native compile)
@@ -34,3 +34,24 @@ Bash script used to compile PHP on MacOS and Linux platforms. Make sure you have
 ### Common pitfalls
 - If used, the `-t` option (target) MUST be specified BEFORE the `-f` option (optimizations)
 - Avoid using the script in directory trees containing spaces. Some libraries don't like trying to be built in directory trees containing spaces, e.g. `/home/user/my folder/pocketmine-mp/` might experience problems.
+<<<<<<< HEAD
+=======
+
+## installer.sh
+
+Script to install PocketMine-MP and PHP binaries on Unix platforms.
+
+| Flag   | Description                         |
+| ------ | ----------------------------------- |
+| -u     | Update PocketMine-MP                |
+| -d     | Install directory                   |
+| -v     | Channel (stable or development)     |
+
+
+## windows-compile-vs.bat
+
+Batch script utilizing Visual Studio on Windows to compile PHP binaries from sources.
+Ensure you have Visual Studio 2017, `git`, `7z` and `wget` installed in your PATH.
+
+Prebuilt binaries can be downloaded from our [AppVeyor build job](https://ci.appveyor.com/project/pmmp/php-build-scripts/build/artifacts).
+>>>>>>> bc8e1cf0015d9c74feaecdb5bf6c3bf9b9e80489
