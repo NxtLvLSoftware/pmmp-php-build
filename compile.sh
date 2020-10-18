@@ -64,7 +64,6 @@ else
 fi
 
 if [ $ERRORS -ne 0 ]; then
-	read -p "Press [Enter] to continue..."
 	exit 1
 fi
 
@@ -312,7 +311,7 @@ echo "return 0;" >> test.c
 echo "}" >> test.c
 
 
-type $CC >> "$DIR/install.log" 2>&1 || { echo >&2 "[ERROR] Please install \"$CC\""; read -p "Press [Enter] to continue..."; exit 1; }
+type $CC >> "$DIR/install.log" 2>&1 || { echo >&2 "[ERROR] Please install \"$CC\""; exit 1; }
 
 [ -z "$THREADS" ] && THREADS=1;
 [ -z "$march" ] && march=native;
